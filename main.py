@@ -18,7 +18,7 @@ def main():
     while choice_bool is not True:
         print("Que veut tu faire")
         print("Check tes mastery [1]")
-        print("Check totale mastery[2]")
+        print("Check mastery score [2]")
         try:
             choice = int(input(""))
         except:
