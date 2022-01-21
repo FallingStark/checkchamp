@@ -5,5 +5,5 @@ setup(name='antipackage',
       author_email="mr.thematthieu007@gmail.com",
       license="MIT License",
       url="https://github.com/FallingStark/checkchamp",
-      py_modules=['antipackage'],
+      py_modules=['stats'],
 )
