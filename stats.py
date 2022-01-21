@@ -58,4 +58,4 @@ class Player:
         self.code = response.status_code
         if self.code == 200:
             content = response.json()
-            print(content)
+            return content

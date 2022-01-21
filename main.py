@@ -33,7 +33,8 @@ def main():
     if choice == 2:
         get_mastery_score(SummonerData)
     if choice == 3:
-        get_champion_mastery(SummonerData)
+        champion_wanted_name = input("Champion Name : ")
+        get_champion_mastery(SummonerData, champion_wanted_name)
 
 
 def get_mastery(SummonerData):
@@ -50,9 +51,13 @@ def get_mastery_score(SummonerData):
     content = SummonerData.get_all_mastery()
     print(f"Total champion mastery score : {content}")
 
-def get_champion_mastery(SummonerData):
-    content = SummonerData.get_champion_mastery("pyke")
-
+def get_champion_mastery(SummonerData, champion_wanted_name):
+    content = SummonerData.get_champion_mastery(champion_wanted_name)
+    if SummonerData.code != 200:
+        print(f"Code : {SummonerData.code}")
+        return
+    print(content)
+    
 
 if __name__ == "__main__":
     main()
