@@ -53,6 +53,9 @@ class Player:
             champion = list_champion[champion_id]
             if champion.lower() == champion_wanted_name.lower():
                 champion_wanted_id = champion_id
+                break
+            else:
+                champion_wanted_id = 0
         request_mastery_champion = f"https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{self.id}/by-champion/{champion_wanted_id}"
         response = requests.get(request_mastery_champion, headers=Header)
         self.code = response.status_code
