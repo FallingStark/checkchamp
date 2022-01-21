@@ -5,6 +5,8 @@ from pprint import pprint
 import requests
 from dotenv import load_dotenv
 
+__version__ = '1.0'
+
 
 load_dotenv()
 Header = {"X-Riot-Token": os.environ.get("API_KEY")}
