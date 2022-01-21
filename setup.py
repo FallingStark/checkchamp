@@ -1,5 +1,5 @@
 from distutils.core import setup
-setup(name='antipackage',
+setup(name='CheckChampStats',
       version='1.0',
       author="FallingStark",
       author_email="mr.thematthieu007@gmail.com",
