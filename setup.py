@@ -1,9 +1,13 @@
-from distutils.core import setup
-setup(name='CheckChampStats',
-      version='1.0',
-      author="FallingStark",
-      author_email="mr.thematthieu007@gmail.com",
-      license="MIT License",
-      url="https://github.com/FallingStark/checkchamp",
-      py_modules=['stats'],
-)
+"""
+    Setup all needed for work
+"""
+
+import os
+
+os.system("cls")
+
+TOKEN = input("Token : ")
+RIOT_API_KEY = input("Riot api key : ")
+
+with open(".env", "w") as file:
+    file.write(f"TOKEN={TOKEN}\nRIOT_API_KEY={RIOT_API_KEY}")
