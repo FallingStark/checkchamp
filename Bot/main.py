@@ -3,7 +3,8 @@ from discord.ext import commands
 from discord_slash import SlashCommand
 import os
 
-class app():
+
+class app:
     def __init__(self, token, riot_api_key):
         self.token = token
         self.riot_api_key = riot_api_key
@@ -23,10 +24,7 @@ class app():
         )
         self.slash = SlashCommand(self.client, sync_commands=True)
 
-        category_list = [
-            "admin",
-            "events"
-        ]
+        category_list = ["admin", "events"]
         self.add_category(category_list)
 
     def add_category(self, category_list):
@@ -35,6 +33,6 @@ class app():
                 if file.endswith(".py"):
                     name = file[:-3]
                     self.client.load_extension(f"Bot.{category}.{name}")
-        
+
     def run(self):
         self.client.run(self.token)

@@ -12,10 +12,10 @@ import locale
 def main():
     """Demande quelle option l'user veut utilisé"""
     choice_bool = False
-    os.system('cls')
-    locale.setlocale(locale.LC_ALL, '')
+    os.system("cls")
+    locale.setlocale(locale.LC_ALL, "")
 
-    #SummonerName = input("Quelle est ton summoner name ? ")
+    # SummonerName = input("Quelle est ton summoner name ? ")
     SummonerName = "FallingSt4rk"
     SummonerData = Player(SummonerName)
     if SummonerData.code != 200:
@@ -63,6 +63,7 @@ def get_mastery_score(SummonerData):
         return f"Code : {SummonerData.code}"
     print(f"Total champion mastery score : {content}")
 
+
 def get_champion_mastery(SummonerData, champion_wanted_name):
     content = SummonerData.get_champion_mastery(champion_wanted_name)
     if SummonerData.code != 200:
@@ -75,7 +76,6 @@ def get_champion_mastery(SummonerData, champion_wanted_name):
         if int(champion_id) == content["championId"]:
             champion_name = list_champion[champion_id]
 
-    
     mastery = content["championLevel"]
     mastery_points = content["championPoints"]
     last_play_timestamp = content["lastPlayTime"]
@@ -90,6 +90,7 @@ def get_champion_mastery(SummonerData, champion_wanted_name):
     print(f"Last play time : {last_play_time}")
     print("--------------------------------------")
     print("")
+
 
 if __name__ == "__main__":
     main()

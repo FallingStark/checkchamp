@@ -6,7 +6,7 @@ import requests
 from dotenv import load_dotenv
 import json
 
-__version__ = '1.0'
+__version__ = "1.0"
 
 
 load_dotenv()
@@ -45,6 +45,7 @@ class Player:
         if self.code == 200:
             content = response.json()
             return content
+
     def get_champion_mastery(self, champion_wanted_name):
         with open("champion_id.json", "r") as file:
             file_content = file.read()
