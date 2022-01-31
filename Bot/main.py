@@ -9,6 +9,7 @@ class app:
         self.token = token
         self.riot_api_key = riot_api_key
 
+    def setup(self):
         intents = discord.Intents.default()
         intents.members = True
 

@@ -1,6 +1,8 @@
+from pickle import TRUE
 import discord
 from discord.ext import commands
 import logging
+import os
 
 
 class events(commands.Cog):
@@ -21,6 +23,7 @@ class events(commands.Cog):
     @commands.Cog.listener()
     async def on_connect(self):
         """When client is connected to discord"""
+        os.system("cls")
         logging.info(f"{self.bot.user.name} is connected to discord")
         print(f"{self.bot.user.name} is connected to discord")
 
@@ -32,14 +35,15 @@ class events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
-        if (
-            "slt" in ctx.content
-            or "bonjour" in ctx.content
-            or "bjr" in ctx.content
-            or "hello" in ctx.content
-            or "cc" in ctx.content
-        ):
-            await ctx.add_reaction("👋")
+        if ctx.author.bot is not True:
+            if (
+                "slt" in ctx.content
+                or "bonjour" in ctx.content
+                or "bjr" in ctx.content
+                or "hello" in ctx.content
+                or "cc" in ctx.content
+            ):
+                await ctx.add_reaction("👋")
 
 
 def setup(bot):
