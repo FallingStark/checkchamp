@@ -1,5 +1,3 @@
-from pprint import pprint
-from urllib import response
 import discord
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
@@ -28,7 +26,7 @@ class set_user(commands.Cog):
             )
         ],
     )
-    async def _ping(self, ctx: SlashContext, summoner_name: str):
+    async def set_user(self, ctx: SlashContext, summoner_name: str):
         data = get_user()
         response = data.get_summers_id(summoner_name)
         if response.status_code == 200:
