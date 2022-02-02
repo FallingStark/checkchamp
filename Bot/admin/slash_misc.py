@@ -1,9 +1,12 @@
+from msilib.schema import Component
 from random import choice
 import discord
 from discord import Embed
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
-from discord_slash.utils.manage_commands import create_choice, create_option
+from discord_slash.utils.manage_commands import *
+from discord_slash.utils.manage_components import *
+from discord_slash.model import ButtonStyle
 
 guild_ids = [528138762006560789, 931591823485468713]
 
@@ -88,8 +91,19 @@ class Slash_misc(commands.Cog):
             title=f"{ctx.author.display_name} fait une caresse à {user.display_name}"
         )
         embed.set_image(url=choice(list_gif))
-        await ctx.send(content=f"||{user.mention}||", embed=embed)
-
+        buttons = [
+            create_button(style=ButtonStyle.green, label="A green button", custom_id="test"),
+            create_button(style=ButtonStyle.blue, label="A blue button", custom_id="yes")
+        ]
+        action_row = create_actionrow(*buttons)
+        message = await ctx.send(content=f"||{user.mention}||", embed=embed, components=[action_row])
+        while True:
+            button_pressed = await wait_for_component(client=self.bot, messages=ctx.message.id)
+            info = button_pressed.data["custom_id"]
+            await ctx.send(info)
+            if info == "yes":
+                await message.edit(components=[])
+                break
 
 
 def setup(bot):

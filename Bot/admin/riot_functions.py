@@ -4,7 +4,8 @@ from discord_slash import cog_ext, SlashContext
 from discord_slash.utils.manage_commands import create_choice, create_option
 from ..riot_api.all_request import *
 import json
-
+from discord_slash.utils.manage_components import create_button, create_actionrow
+from discord_slash.model import ButtonStyle
 
 guilds_ids = [528138762006560789, 931591823485468713]
 
@@ -129,6 +130,7 @@ class set_user(commands.Cog):
         except Exception as err:
             await ctx.send("Summoner not set (or error)")
             print(err)
+        
 
 
 def setup(bot):
